@@ -1,0 +1,165 @@
+.player-container {
+	margin: 12px 0 10px 0;
+	position: relative;
+	padding-bottom: 39.16% /* (347 / 886) * 100 */;
+}
+.player-container span {
+	display: block !important;
+}
+.BrightcoveExperience {
+	width: 70%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.playlist {
+	position: absolute;
+	left: 70.5%;
+	width: 29.06%;
+	height: 100%;
+	border: 1px solid #ccc;
+	border-radius: 0 0 5px 5px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.playlist-bottom {
+	display:none;
+}
+.playlist-item {
+	position: relative;
+	margin: 3px 1%;
+	width: 97.7%;
+	height: 70px;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgb(243, 243, 243)), color-stop(0.72549, rgb(248, 248, 248)), to(rgb(225, 225, 225)));
+	border: 1px solid rgb(204, 204, 204);
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	cursor: pointer;
+}
+.playlist-item-thumbnail, .playlist-item-description {
+	position: absolute;
+}
+.playlist-item-thumbnail {
+	top: 0;
+	left: 0;
+	margin: 6px;
+	padding: 6px 0;
+	background-color: rgb(225, 225, 225);
+	border: 1px solid rgb(210, 210, 210);
+	height: 45px;
+}
+.playlist-item-thumbnail img {
+	width: 80px;
+	height: 45px;
+}
+.playlist-item-description {
+	top: 0;
+	left: 90px;
+	margin: 6px 2px;
+	width: 59%;
+}
+.playlist-item-description h3 {
+	font-family: Arial, Helvetica, Sans;
+	white-space: normal;
+	text-align: left;
+	padding-left: 2px;
+	text-decoration: none;
+	cursor: default;
+	text-overflow: ellipsis;
+	color: rgb(94, 96, 98);
+	font-size: 14px;
+	line-height: 1.2em;
+	font-weight: bold;
+	word-wrap: break-word;
+	cursor:pointer !important;
+}
+.playlist-item-description p {
+	overflow: hidden;
+	font-family: Arial, Helvetica, Sans;
+	text-align: left;
+	padding-left: 2px;
+	text-decoration: none;
+	cursor: default;
+	text-overflow: ellipsis;
+	color: rgb(125, 125, 125);
+	font-size: 10px;
+	line-height: 1.2em;
+	width: 100%;
+	height: 48px;
+	display:none;
+}
+.playlist-item-selected {
+	background-image: none;
+}
+.playlist-item-selected h3 {
+	color: rgb(107, 170, 177);
+}
+.playlist-item-selected .playlist-item-thumbnail {
+	background-color: rgb(178, 200, 70);
+}
+ @media screen and (max-width: 900px) {
+	.playlist-item-thumbnail img {
+	 width: 100%;
+	 height: auto;
+	}
+	.playlist-item-thumbnail {
+		height: auto;
+	}
+	.playlist-item-description {
+		width: 96% !important;
+		margin-left: 4px;
+	}
+	.playlist-item-thumbnail, .playlist-item-description {
+		position: relative;
+		left: 0;
+	}
+	.playlist-item {
+		height: auto;
+	}
+	.playlist-item-description p {
+		height: auto;
+	}
+}
+
+ @media (max-width: 480px) {
+ 	.playlist-bottom {
+		left: 70.5%;
+		max-width:: 140%;
+		height: 185px;
+		border: 1px solid #ccc;
+		border-radius: 0 0 5px 5px;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		overflow-y: hidden;
+		overflow-x: scroll;
+		display:block;
+		margin-top:70px;
+	}
+	.playlist {
+	 	display:none;
+	}
+ .BrightcoveExperience {
+	 width: 99%;
+	 height: 144%;
+	 position: absolute;
+	 left: 0;
+	 top: 0;
+	}
+ .playlist-item {
+	 float:left;
+	 width:13%;
+	 min-height:157px;
+	}
+ .play {
+	 width:650px;
+	}
+	.playlist-item {
+		margin:3px 3px;
+	}
+	.playlist-item-description h3 {
+		padding-top:0px;
+	}
+}
