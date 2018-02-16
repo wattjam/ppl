@@ -1,0 +1,976 @@
+@font-face { font-family: 'PayPal Sans Bold'; src: url('../fonts/PayPalSansBig-Bold.otf'); }
+@font-face { font-family: 'PayPal Sans Light'; src: url('../fonts/PayPalSansBig-Light.otf'); }
+@font-face { font-family: 'PayPal Sans Medium'; src: url('../fonts/PayPalSansBig-Medium.otf'); }
+@font-face { font-family: 'PayPal Sans'; src: url('../fonts/PayPalSansBig-Regular.otf'); }
+@font-face { font-family: 'PayPal Sans Thin'; src: url('../fonts/PayPalSansBig-Thin.otf'); }
+
+/* GLOBAL */
+body {
+  color: #333;
+  font: 14px/1.5 "PayPal Sans Light",Arial,Helvetica,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+}
+#home-page [class*='col-'] {
+  padding-right: 7px;
+  padding-left: 7px;
+}
+#home-page h1 {
+  color: #fff;
+  font-size: 20px;
+}
+h1 {
+  color: #de0063;
+}
+h2 {
+  color: #ff9600;
+  font-size: 1.4em;
+  font-family: 'PayPal Sans', Arial, Helvetica, sans-serif;
+}
+h3 {
+  color: #545961;
+  font-size: 17px;
+  font-family: 'PayPal Sans', Arial, Helvetica, sans-serif;
+}
+h4 {
+  font-size: 17px;
+  font-family: 'PayPal Sans', Arial, Helvetica, sans-serif;
+}
+p a, ul li a, h3 a {
+  color: #009CDE;
+  font-weight: bold;
+}
+a:focus, a:hover {
+  color: #003087;
+  text-decoration: none;
+}
+.modal-title {
+  color: #de0063;
+}
+p { letter-spacing: .04em }
+.no-padding { padding: 0 }
+td, th {
+  vertical-align: top;
+}
+.tagline {
+  font-size: .9em;
+}
+.display-together {
+  display: inline-block;
+}
+.margin-top-15 {
+  margin-top: 15px;
+}
+.margin-top-10 {
+  margin-top: 10px;
+}
+section.content,
+section.tiles {
+  margin-bottom: 50px;
+}
+.phone {
+  font-weight: bold;
+  white-space: nowrap;
+}
+.padding-left-15 {
+  padding-left: 15px;
+}
+.callout-heading {
+    color: #ffffff;
+    margin-top: 0px !important;
+}
+.your-benefits-box a {
+  color: white;
+  text-decoration: underline;
+  font-weight: normal;
+  display: inline-block;
+}
+.your-benefits-box a:hover {
+  text-decoration: underline !important;
+}
+/* HEADER / NAVBAR */
+.navbar-toggle,
+.navbar-toggle.collapsed,
+.navbar-toggle.collapsed:focus
+.navbar-toggle.collapsed:active {
+  margin: 0;
+  border: 0;
+  padding: 25px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0;
+  background-color: #fff;
+}
+.navbar-toggle.uncollapsed,
+.navbar-toggle.uncollapsed:focus,
+.navbar-toggle.uncollapsed:active {
+  background-color: #009CDE;
+}
+.navbar-toggle .icon-bar,
+.navbar-toggle.collapsed .icon-bar,
+.navbar-toggle.collapsed:focus .icon-bar,
+.navbar-toggle.collapsed:active .icon-bar {
+  width: 32px;
+  height: 4px;
+  background-color: #009CDE;
+  border-radius: 20%;
+}
+.navbar-toggle.uncollapsed .icon-bar,
+.navbar-toggle.uncollapsed:focus .icon-bar,
+.navbar-toggle.uncollapsed:active .icon-bar {
+  background-color: #fff;
+}
+.navbar {
+  margin-bottom: 0;
+}
+.navbar .container {
+  position: relative;
+}
+.navbar-header {
+  width: 100%;
+}
+.navbar-brand {
+  height: 70px;
+  padding: 8px;
+}
+.navbar-nav {
+  font-size: 13px;
+}
+.nav > li > a:focus, .nav > li > a:hover {
+  background-color: #009CDE;
+  color: #fff;
+}
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+  background-color: #009CDE;
+}
+.navbar-nav > li:last-child { border-right: none }
+.navbar-nav > li > a {
+  color: #616265;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 2px 13px;
+  padding: 2px 10px !important\9;
+  letter-spacing: 0.06em;
+  letter-spacing: .04em\9;
+}
+.navbar-nav > .active > a {
+  background: #009CDE;
+  color: #fff;
+  font-weight: bold;
+}
+.navbar-nav > li > .dropdown-menu {
+  border: 0;
+}
+.dropdown-menu {
+  background-color: #009CDE;
+  padding: 0;
+  font-size: 13px;
+}
+.dropdown-menu > li > a {
+  color: #fff;
+  padding: 7px 20px 4px;
+}
+.dropdown-menu li span {
+  white-space: normal;
+  display: block;
+}
+.navbar-nav > .open > a,
+.navbar-nav > .open > a:focus,
+.navbar-nav > .open > a:hover {
+  background-color: #009CDE;
+  color: #fff;
+}
+.navbar-fixed-top .navbar-collapse {
+  max-height: 371px;
+}
+
+/* SEARCH */
+.search-toggle .screen-reader-text {
+  top: 0;
+  right: 0;
+}
+.search-toggle.active {
+  background-color: #009CDE;
+  color: #FFF;
+}
+.search-box-wrapper {
+  z-index: 2;
+  width: 218px;
+  position: absolute;
+  right: 0;
+  display: none;
+}
+.search-box {
+  padding: 10px 15px;
+  background: #4d4d4d;
+  background: #009CDE;
+}
+.search-box label {
+  margin: 0;
+}
+.search-box .search-field {
+  max-width: 365px;
+  padding: 5px 5px 5px 10px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 0px none;
+  color: #616265;
+}
+.list_style_dash {
+    list-style: none;
+    padding-left: 2px !important;
+}
+.list_style_dash li:before {
+    content: " - ";
+    font-weight: 600;
+}
+#search-results-container table {
+  margin: 0;
+  border-collapse: inherit;
+}
+#search-results-container table tbody td {
+  border: 0;
+  padding: 0;
+}
+.hide { display: none; }
+.error404 .search-submit,
+.search .search-submit,
+.search-box .search-submit { display: none; }
+.gsc-url-top { display: none !important; }
+
+/* HOME PAGE / TILES */
+#home-page .tile {
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 14px;
+}
+#home-page .tile p {
+  color: #fff;
+  font-family: 'PayPal Sans Light', Arial, serif !important;
+}
+#home-page .panel-body {
+  text-align: center;
+  padding: 40px 22px;
+}
+#home-page .ybr h1{
+	margin-top:0px !important;
+}
+#home-page div a:focus, #home-page div a:hover {
+  text-decoration: none;
+}
+div.icon {
+  height: 73px;
+}
+div.icon img {
+  height: 100%;
+}
+.list_style_check li{
+    list-style: none;
+    text-indent: -25px;
+}
+.list_style_check li:before {
+    content: " \f00c ";
+    font-family: "FontAwesome";
+    margin-right: 5px;
+}
+.list_style_check ul li:before {
+   content: " " !important;
+	
+}
+.changes-HSA-accordian .work-img {
+  transform: translateY(-3px);
+}
+.changes-HSA-accordian .globe-img {
+  transform: translateY(-7px);
+}
+.tile-dark-blue { background: transparent url("../img/background-dark-blue.jpg") no-repeat scroll 0% 0%; background-size: cover; }
+.tile-dark-blue a {
+  color: #fff;
+  font-size: 15px;
+}
+.tile-dark-blue a:hover { text-decoration: underline !important; }
+.tile-orange { background: transparent url('../img/background-orange.jpg') no-repeat scroll 0% 0%; background-size: cover; }
+
+.tile-video {
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/pypl-hmpg-video-promo_1.jpg', sizingMethod='scale')\9;
+  background: transparent url("../img/pypl-hmpg-video-promo_1.jpg") no-repeat scroll 34% 24%;
+  background-size: 100% 100%;
+  display: table;
+  width: 100%;
+}
+.tile-video .panel-body {
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/background-dark-blue.jpg', sizingMethod='scale')\9;
+  opacity: 0;
+  background: transparent url("../img/background-dark-blue.jpg") no-repeat scroll 0% 0%;
+  background-size: cover;
+}
+.tile-video-sm {
+  background: transparent url("../img/background-dark-blue.jpg") no-repeat scroll 0% 0%; 
+  background-size: cover;
+ }
+.tile-video > img {
+  position: absolute;
+  opacity: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.tile-orange-red { background: transparent url('../img/background-orange-red.jpg') no-repeat scroll 0% 0%; background-size: cover; }
+.tile-picture {
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/background-picture-ie.jpg', sizingMethod='scale')\9;
+  background: transparent url("../img/background-picture.jpg") no-repeat scroll 55% 30%;
+  background-size: cover;
+}
+.tile-light-blue { background: transparent url('../img/background-light-blue.jpg') no-repeat scroll 0% 0%; background-size: cover; }
+.tile-red-purple { background: transparent url('../img/background-red-purple.jpg') no-repeat scroll 0% 0%; background-size: cover; }
+.title-sky-blue  { background: transparent url('../img/background-sky-blue.png') no-repeat scroll 0% 0%; background-size: cover; }
+.tile-orange-blue  { background: transparent url('../img/tile-orange-blue.jpg') no-repeat scroll 0% 0%; background-size: cover; }
+
+/* BANNER IMAGES */
+.banner-images { margin-bottom: 15px }
+
+.banner-401k-savings-plan-1 { background: transparent url('../img/PP_Financial_401k.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-401k-savings-plan-2 { background: transparent url('../img/banner-401k-savings-plan-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-401k-savings-plan { background: transparent url('../img/aside-401k-savings-plan.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-401k-savings-plan-2.fs { background: transparent url('../img/banner-401k-savings-plan-2-fs.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-401k-savings-plan.fs { background: transparent url('../img/aside-401k-savings-plan-fs.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-additional-benefits-1 { background: transparent url('../img/banner-additional-benefits-1.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-additional-benefits-2 { background: transparent url('../img/banner-additional-benefits-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-additional-benefits { background: transparent url('../img/aside-additional-benefits.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-advance-medical-1 { background: transparent url('../img/banner-advance-medical-1.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-advance-medical-2 { background: transparent url('../img/banner-advance-medical-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-advance-medical { background: transparent url('../img/aside-advance-medical.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+.aside-family { background: transparent url('../img/aside-advocacy-services-as.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-advance-medical-2.expert { background: transparent url('../img/banner-advance-medical-2-expert.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-advance-medical.expert { background: transparent url('../img/aside-advance-medical-expert.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-advance-medical-1.stanford { background: transparent url('../img/banner-advance-medical-1-stanford.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-advance-medical-2.stanford { background: transparent url('../img/banner-advance-medical-2-stanford.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-advance-medical.stanford { background: transparent url('../img/aside-advance-medical-stanford.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-advance-medical-2.discounts { background: transparent url('../img/banner-advance-medical-2-discounts.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-advance-medical.discounts { background: transparent url('../img/aside-advance-medical-discounts.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-advocacy-services-1 { background: transparent url('../img/PP_Other_AdvocacySvs.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-advocacy-services-2 { background: transparent url('../img/banner-advocacy-services-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-advocacy-services { background: transparent url('../img/aside-advocacy-services.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-advocacy-services-1.as { background: transparent url('../img/PP_Other_AdvocacySvs.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-advocacy-services-2.as { background: transparent url('../img/banner-advocacy-services-2-as.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-advocacy-services.as { background: transparent url('../img/aside-advocacy-services-as.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+
+.banner-annual-enrollment-1 { background: transparent url('../img/banner-annual-enrollment-1.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-annual-enrollment-2 { background: transparent url('../img/banner-annual-enrollment-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-annual-enrollment { background: transparent url('../img/aside-annual-enrollment.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-benefits-documents-1 { background: transparent url('../img/PP_Resources_BenefitsDocuments.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-benefits-documents-2 { background: transparent url('../img/banner-benefits-documents-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-benefits-documents { background: transparent url('../img/aside-benefits-documents.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-benefits-eligibility-1 { background: transparent url('../img/PP_Resources_BenefitsEligibility.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-benefits-eligibility-2 { background: transparent url('../img/banner-benefits-eligibility-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-benefits-eligibility { background: transparent url('../img/aside-benefits-eligibility.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-cobra-whats-changing-1 { background: transparent url('../img/banner-cobra-whats-changing-1.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-cobra-whats-changing-2 { background: transparent url('../img/banner-cobra-whats-changing-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-cobra-whats-changing { background: transparent url('../img/aside-cobra-whats-changing.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-dental-benefits-1 { background: transparent url('../img/PP_H&W_Dental.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-dental-benefits-2 { background: transparent url('../img/banner-dental-benefits-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-dental-benefits { background: transparent url('../img/aside-dental-benefits.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-employee-assistance-program-1 { background: transparent url('../img/PP_Other_EAP.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-employee-assistance-program-2 { background: transparent url('../img/banner-employee-assistance-program-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-employee-assistance-program { background: transparent url('../img/aside-employee-assistance-program.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-employee-contributions-1 { background: transparent url('../img/banner-employee-contributions-1.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-employee-contributions-2 { background: transparent url('../img/banner-employee-contributions-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-employee-contributions { background: transparent url('../img/aside-employee-contributions.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-faq-1 { background: transparent url('../img/PP_Resources_FAQ.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-faq-2 { background: transparent url('../img/PP_Resources_FAQ-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-faq { background: transparent url('../img/aside-faq.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-flexible-spending-accounts-1 { background: transparent url('../img/PP_Financial_FSA.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-flexible-spending-accounts-2 { background: transparent url('../img/banner-flexible-spending-accounts-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-flexible-spending-accounts { background: transparent url('../img/aside-flexible-spending-accounts.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-group-legal-coverage-1 { background: transparent url('../img/PP_Financial_GroupLegal.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-group-legal-coverage-2 { background: transparent url('../img/banner-group-legal-coverage-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-group-legal-coverage { background: transparent url('../img/aside-group-legal-coverage.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-how-to-enroll-1 { background: transparent url('../img/banner-how-to-enroll-1.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-how-to-enroll-2 { background: transparent url('../img/banner-how-to-enroll-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-how-to-enroll { background: transparent url('../img/aside-how-to-enroll.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-how-to-pay-for-cobra-1 { background: transparent url('../img/banner-how-to-pay-for-cobra-1.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-how-to-pay-for-cobra-2 { background: transparent url('../img/banner-how-to-pay-for-cobra-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-how-to-pay-for-cobra { background: transparent url('../img/aside-how-to-pay-for-cobra.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-life-accident-and-disability-insurance-1 { background: transparent url('../img/PP_Financial_LifeAccidentDisability.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-life-accident-and-disability-insurance-2 { background: transparent url('../img/banner-life-accident-and-disability-insurance-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-life-accident-and-disability-insurance { background: transparent url('../img/aside-life-accident-and-disability-insurance.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-medical-benefits-1 { background: transparent url('../img/PP_H&W_MedicalBenefits.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-medical-benefits-2 { background: transparent url('../img/banner-medical-benefits-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+
+.banner-how-to-enroll-1 { background: transparent url('../img/PP_Microsite_How to Enroll.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-how-to-enroll-2 { background: transparent url('../img/PP_Microsite_How-to-Enroll-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+
+.banner-whats-changing-1 { background: transparent url('../img/PP_Other_AdvanceMedical.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-whats-changing-2 { background: transparent url('../img/PP_Microsite_How-to-Enroll-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+
+.banner-employee-contribution-1 { background: transparent url('../img/PP_Resources_EmployeeContrib.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-employee-contribution-2 { background: transparent url('../img/PP_Resources_EmployeeContrib-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-employee-contribution{background: transparent url('../img/aside-employee-contribution.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+.aside-medical-benefits { background: transparent url('../img/aside-medical-benefits.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+.aside-everyday-living { background: transparent url('../img/aside-everyday-living.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.aside-YBR { background: transparent url('../img/background-sky-blue.png') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 140%; text-align: center; padding: 30px; }
+.aside-YBR h2, .aside-YBR h3, .aside-YBR p, .aside-YBR a { color: #fff; }
+.aside-YBR h2 { margin-top: 0; }
+.aside-YBR h3 { margin-top: 30px; }
+.aside-YBR a { text-decoration: underline; }
+
+.banner-new-time-off-benefits-1 { background: transparent url('../img/banner-new-time-off-benefits-1.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-new-time-off-benefits-2 { background: transparent url('../img/banner-new-time-off-benefits-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-new-time-off-benefits { background: transparent url('../img/aside-new-time-off-benefits.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-new-time-off-benefits-1.espp { background: transparent url('../img/banner-new-time-off-benefits-1-espp.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-new-time-off-benefits-2.espp { background: transparent url('../img/banner-new-time-off-benefits-2-espp.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-new-time-off-benefits.espp { background: transparent url('../img/aside-new-time-off-benefits-espp.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+
+.banner-onsite-events-1 { background: transparent url('../img/banner-onsite-events-1.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-onsite-events-2 { background: transparent url('../img/banner-onsite-events-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-onsite-events { background: transparent url('../img/aside-onsite-events.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-prescription-drug-benefits-1 { background: transparent url('../img/PP_H&W_PrescriptionDrug.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-prescription-drug-benefits-2 { background: transparent url('../img/banner-prescription-drug-benefits-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-prescription-drug-benefits { background: transparent url('../img/aside-prescription-drug-benefits.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-preventive-care-1 { background: transparent url('../img/banner-preventive-care-1.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-preventive-care-2 { background: transparent url('../img/banner-preventive-care-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-preventive-care { background: transparent url('../img/aside-preventive-care.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-resources-employee-contributions-1 { background: transparent url('../img/banner-resources-employee-contributions-1.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-resources-employee-contributions-2 { background: transparent url('../img/banner-resources-employee-contributions-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-resources-employee-contributions { background: transparent url('../img/aside-resources-employee-contributions.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-resources-faq-1 { background: transparent url('../img/banner-resources-faq-1.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-resources-faq-2 { background: transparent url('../img/banner-resources-faq-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-resources-faq { background: transparent url('../img/aside-resources-faq.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+.banner-videos-1 { background: transparent url('../img/PP_Annual Enrollment_Videos.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-videos-1.videos { background: transparent url('../img/PP_Annual-Enrollment_Videos.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; } 
+.banner-videos-2 { background: transparent url('../img/banner-new-time-off-benefits-2-espp.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-videos { background: transparent url('../img/aside-videos.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+.aside-benefits-videos { background: transparent url('../img/aside-benefits-videos.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-vision-benefits-1 { background: transparent url('../img/PP_H&W_Vision.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-vision-benefits-2 { background: transparent url('../img/banner-vision-benefits-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-vision-benefits { background: transparent url('../img/aside-vision-benefits.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-whats-changing-1 { background: transparent url('../img/banner-whats-changing-1.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-whats-changing-2 { background: transparent url('../img/banner-whats-changing-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+.aside-whats-changing { background: transparent url('../img/aside-whats-changing.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 112%; }
+
+.banner-new-to-paypal-1 { background: transparent url('../img/banner-new-to-paypal-1.jpg') no-repeat scroll 0% 0%; background-size: cover; padding-bottom: 19.36%; }
+.banner-new-to-paypal-2 { background: transparent url('../img/banner-group-legal-coverage-2.jpg') no-repeat scroll 0% 0%; background-size: cover; height: 170px; }
+
+.aside-current-year-benefits {
+  background: transparent url('../img/aside-callout-box.png') no-repeat scroll 0% 0%;
+  background-size: cover;
+  margin: 15px 0;
+  padding: 10px 15px;
+}
+.aside-current-year-benefits p {
+  color: #fff;
+}
+.aside-current-year-benefits p a {
+  color: #fff;
+  text-decoration: underline;
+}
+.aside-current-year-benefits p a:hover,
+.aside-current-year-benefits p a:focus {
+  color: #ddd;
+}
+
+/* BREADCRUMBS */
+.breadcrumb {
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+.breadcrumb > li {
+  text-transform: uppercase;
+}
+.breadcrumb > li > a {
+  color: #5c5c5c;
+}
+.breadcrumb > li > a:hover {
+  color: #222;
+  text-decoration: underline;
+}
+.breadcrumb > li + li::before {
+  color: #5c5c5c;
+  content: "> ";
+}
+.breadcrumb > li span {
+  text-transform: lowercase;
+}
+
+/* TABLES */
+.whats-new-subheading th{
+  background-color: #bfbfbf !important;
+  color: #000000;
+}
+table {
+  margin: 0px 0px 20px;
+  border-collapse: collapse;
+  width: 100%;
+}
+table thead th {
+  background-color: #DE0063;
+  color: #fff;
+  padding: 5px 15px;
+  border-left: 1px solid #fff;
+}
+table tbody td.b-l {
+  border-left: 1px solid #009CDE !important;
+}
+table thead th:first-child {
+  border-left: none;
+}
+table tbody td {
+  border-left: 1px solid #009CDE;
+  border-bottom: 1px solid #009CDE;
+  padding: 5px 15px;
+}
+table tbody td:first-child {
+  border-left: none;
+}
+.not-table {
+  margin-bottom: 20px;
+}
+.not-table > h5 {
+  font-weight: bold;
+  padding: 7px 0px 7px 15px;
+  background-color: rgb(222, 0, 99);
+  color: #FFF;
+}
+table.employee-contribution { width: 100% }
+table.cobra-options td:first-child { width: 15% }
+table.medical-benefits span {
+  font-size: 12px;
+}
+.benefits-annual-td td {
+  padding: 5px 11px !important;
+}
+.employee-contribution-table table tbody td:first-child {
+  width: 28%;
+}
+.enroll-table table tbody td:first-child {
+  width: 34%;
+}
+/* RESPONSIVE TABLES */
+/*, (min-device-width: 768px) and (max-device-width: 1024px)*/
+@media only screen and (max-width: 760px) {
+  #search-results-container table tr {
+    border: 0;
+    margin: 0;
+  }
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  table tbody td {
+    padding: 5px 15px;
+    border: none;
+  }
+  td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+  table tbody td[data-th]:before {
+    content: attr(data-th) " ";
+    color: #DE0063;
+    font-weight: bold;
+    margin-right: 10px;
+    width: 12em;
+    display: inline-block;
+  }
+  table:not(.prescription-drug-benefits) tbody .phoneView:first-child {
+	  background: #DE0063;
+      color: #fff;
+      font-weight: bold;
+  }
+  table:not(.prescription-drug-benefits) tbody td[data-th]:first-child {
+    background: #DE0063;
+    color: #fff;
+    font-weight: bold;
+  }
+  table:not(.prescription-drug-benefits) tbody td[data-th]:first-child:before {
+    color: #fff;
+  }
+  /* COBRA CONTRIBUTIONS */
+  table:not(.cobra-contributions) tbody tr{
+    border-bottom: 1px solid #009CDE;
+    margin-bottom: 10px;
+  }
+  table.cobra-contributions tbody tr:nth-child(4n) {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #009CDE;
+  }
+  table.cobra-contributions tbody tr:nth-child(4n) {
+    margin-bottom: 20px;
+  }
+  table.events tbody td[data-th]:before,
+  table.time-off tbody td[data-th]:before { 
+    width: 8em;
+  }
+  table.employee-contribution tbody td[data-th]:before { width: 16em }
+  table.cobra-options td:first-child {
+    width: 100%;
+    background: #DE0063;
+    color: #fff;
+    font-weight: bold;
+  }
+  table.cobra-options td:first-child p {
+    margin: 0;
+  }
+  table.fs-insurance tbody td[data-th]:first-child:before {
+    width: 2em;
+  }
+  table.medical-benefits tbody td[data-th]:before,
+  table.dental-benefits tbody td[data-th]:before,
+  table.prescription-drug-benefits tbody td[data-th]:before,
+  table.fs-insurance tbody td[data-th]:nth-child(n+2):before {
+    width: 100%;
+  }
+  table.prescription-drug-benefits2 tbody tr:first-child td:first-child {
+    background-color: #DE0063;
+    color: #fff;
+  }
+  table.prescription-drug-benefits tbody tr:nth-child(odd) {
+    background-color: #DE0063;
+    color: #fff;
+  }
+  table.prescription-drug-benefits tbody tr:last-child {
+    background-color: transparent;
+    color: inherit;
+  }
+}
+
+/* ACCORDIONS */
+.panel-default {
+  border: 0;
+}
+.panel-heading > a {
+  text-decoration: none;
+}
+.panel-group .panel + .panel {
+  margin-top: 8px;
+}
+.panel-default > .panel-heading {
+  color: #fff;
+  background-color: #FF9600;
+  border-color: transparent;
+  border-radius: 0;
+  position: relative;
+  padding: 0;
+}
+.panel-heading h4 {
+  color: #FFF;
+  display: block;
+  line-height: 22px;
+  padding: 9px 9px 9px 60px;
+}
+.panel-heading .fa {
+  padding: 2px 17px;
+  border-right: .1em solid white;
+  color: #fff;
+  margin: 4px 0;
+}
+.fa.fa-angle-down {
+  padding: 2px 13px;
+}
+.panel-group .panel .panel-heading > .panel-title > a {
+  color: #FFF;
+  display: block;
+  line-height: 22px;
+  padding: 9px 9px 9px 60px;
+}
+.panel-accordion .panel-body {
+  padding: 15px 0;
+}
+
+/* BACK TO TOP */
+.cd-top i {
+  color: #fff;
+  position: absolute;
+  top: 5px;
+  left: 11px;
+}
+.cd-top {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  position: fixed;
+  bottom: 40px;
+  right: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  /* image replacement properties */
+  overflow: hidden;
+  white-space: nowrap;
+  background: rgba(0, 156, 222, 0.8) no-repeat center 50%;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+  -moz-transition: opacity .3s 0s, visibility 0s .3s;
+  transition: opacity .3s 0s, visibility 0s .3s;
+}
+.cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover, .cd-top:hover {
+  -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+  -moz-transition: opacity .3s 0s, visibility 0s 0s;
+  transition: opacity .3s 0s, visibility 0s 0s;
+}
+.cd-top.cd-is-visible {
+  /* the button becomes visible */
+  visibility: visible;
+  opacity: 1;
+}
+.cd-top.cd-fade-out {
+  /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+  opacity: .5;
+}
+.no-touch .cd-top:hover, .cd-top:hover {
+  background-color: #009CDE;
+  opacity: 1;
+}
+/*Footer CSS*/
+footer {
+  margin-bottom: 30px;
+}
+footer ul {
+  text-align: center;
+}
+footer .nav-pills>li {
+  float: none;
+  display: inline-block;
+}
+footer .nav>li>a {
+  padding: 0px 3px 5px;
+}
+footer .nav>li>a:focus, .nav>li>a:hover  {
+  background-color: #ffffff;
+  color: #009CDE;
+}
+@media only screen and (min-width: 768px) {
+  .cd-top {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+@media only screen and (min-width: 1199px) {
+  .cd-top {
+    height: 60px;
+    width: 60px;
+    right: 30px;
+    bottom: 30px;
+  }
+  .cd-top i {
+    top: 8px;
+    left: 16px;
+  }
+}
+
+/* VIDEOS PAGE */
+section.videos {
+  margin-top: 20px;
+}
+section.videos h2 {
+  margin-top: 0;
+}
+section.videos img {
+  margin-bottom: -18px;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 1200px) {
+  #home-page #defaultNavbar1 {
+    margin-right: -7px;
+    margin-left: -7px;
+  }
+  #defaultNavbar1 {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .navbar-nav {
+    margin: 7.5px -15px;
+  }
+  .navbar-nav li:last-child .dropdown-menu {
+    left: inherit;
+    right: 0;
+  }
+  .navbar-nav > li {
+    border-right: 1px solid #616265;
+  }
+  ul.nav li:hover a {
+    background-color: #009CDE;
+    color: #fff;
+  }
+  ul.nav li.dropdown:hover ul.dropdown-menu {
+    display: block;
+  }
+  ul.nav li.dropdown:hover > ul > li > a:hover {
+    background-color: #fff;
+    color: #333;
+  }
+  #content .navbar-brand {
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 1199px) {
+  /*h2:before {
+    display: block;
+    content: "";
+    height: 85px;
+    margin: -85px 0 0;
+  }*/
+  section.content,
+  section.tiles {
+    margin-top: 70px;
+  }
+  .navbar-fixed-top {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.176);
+  }
+  .navbar-collapse.in {
+    overflow-y: auto !important;
+  }
+  .navbar-header {
+    float: none;
+  }
+  .navbar-toggle {
+    display: block;
+  }
+  .navbar-collapse {
+    border-top: none;
+    box-shadow: none;
+  }
+  .navbar-collapse.collapse {
+    display: none !important;
+  }
+  .navbar-nav,
+  .navbar-nav > li {
+    float: none;
+  }
+  .navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #fff;
+  }
+  .navbar-text {
+    float: none;
+    margin: 15px 0;
+  }
+  .navbar-collapse.collapsing,
+  .navbar-collapse.collapse.in { 
+    display: block !important;
+    background-color: #009CDE;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  .collapsing {
+    overflow: hidden !important;
+  }
+  .navbar-nav .open .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    border: 0px none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  #home-page [class*="col-"] {
+    padding-right: 3px;
+    padding-left: 3px;
+  }
+  #home-page .tile {
+    margin-bottom: 6px;
+  }
+}
+@media (max-width: 768px) {
+  #home-page .tile {
+    margin-bottom: 3px;
+  }
+  table.employee-contribution tbody td[data-th]:first-child:before {
+    width: 100%;
+  }
+  .navbar-header > a {
+    padding: 15px 8px;
+  }
+  .navbar-header > a > img {
+    max-width: 145px;
+  }
+  .employee-contribution-table table tbody td:first-child {
+    width: 100%;
+  }
+  .enroll-table table tbody td:first-child {
+    width: 100%;
+  }
+  .navbar-nav .open .dropdown-menu>li>a {
+    padding: 6px 20px 6px;
+  }
+}
+@media (min-width: 767px) {
+  table.employee-contribution tbody td:first-child {
+    white-space: nowrap;
+  }
+  tr.no-border > td {
+    border-bottom: none;
+  }
+}
+@media (min-width: 761px) {
+	.txt-algn{
+		text-align: center;
+	}
+	.tbl-width{
+		width:40%;
+	}
+}
+.call-out {
+  background-color: #009CDE;
+  color: #fff;
+  padding: 20px 15px 10px 15px;
+}
+.call-out a {
+  color: #fff;
+  font-weight: normal;
+  text-decoration:underline;
+//  border-bottom: 1px solid #fff;
+  padding-bottom: 1px;
+}
+.call-out a:hover {
+  color: #ddd;
+  font-weight: normal;
+//  border-bottom: 1px solid #ddd;
+  padding-bottom: 1px;
+}
+
+.link-text{
+	text-decoration:underline !important;
+	font-weight:bold;
