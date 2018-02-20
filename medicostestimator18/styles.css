@@ -1,0 +1,17 @@
+body
+{
+	background-color : #FFFFFF;
+	color : #000000;
+	margin : 0 0 0 0;
+	text-align : center;
+}
+
+.masterWrapper
+{
+	background-color : #FFFFFF;
+	width : 978px;
+	height : 613px;
+	margin : 0px auto;
+	padding : 5px 5px 5px 5px;
+	text-align : left;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Flexible Spending Account Estimator</title>
+	<link rel="stylesheet" href="styles.css" type="text/css">
+	<script src="engineCore/utility.js" language="javascript" type="text/javascript"></script>
+	<script src="engineCore/trace.js" language="javascript" type="text/javascript"></script>
+	<script src="engineCore/validationBase.js" language="javascript" type="text/javascript"></script>
+	<script src="engineCore/fsaeValidation.js" language="javascript" type="text/javascript"></script>
+	<script src="engineCore/fsaeEngine.js" language="javascript" type="text/javascript"></script>
+	<script src="fsaeConfig.js" language="javascript" type="text/javascript"></script>
+	<script src="swfobject.js" language="javascript" type="text/javascript"></script>
+	<script language="javascript" type="text/javascript">
+
+		var flashvars = {};
+		if ( swfobject.getQueryParamValue("mc") ) { flashvars.mc = swfobject.getQueryParamValue("mc"); }
+		if ( swfobject.getQueryParamValue("cl") ) { flashvars.cl = swfobject.getQueryParamValue("cl"); }
+		if ( swfobject.getQueryParamValue("cslt") )
+		{
+			var cslt = swfobject.getQueryParamValue("cslt");
+			flashvars.mcl = (cslt === "S") ? 6350 : 12700; // cost-sharing limits for 2015
+			flashvars.cslt = cslt;
+		}
+		swfobject.embedSWF("FsaeFlex.swf", "myContent", "100%", "100%", "9.0.28", "expressInstall.swf", flashvars);
+		
+	</script>
+</head>
+<body>
+	<div class="masterWrapper">
+		<div id="myContent">
+			<h1>Flash Player Required</h1>
+			<p><a href="http://www.adobe.com/go/getflashplayer"><img src="get_flash_player.gif" alt="Get Adobe Flash player" border="0" /></a></p>
+		</div>
+	</div>
+	<script language="javascript" type="text/javascript">
+
+		FSAE_VALIDATION.checkConfig(FSAE_CONFIG);
+
+		function getFsaeConfig()
+		{
+			return FSAE_CONFIG;
+		}
+		
+		function getDefaults()
+		{
+			var obj = {};
+			return obj;
+		}
+		
+		function getToolCookie()
+		{
+			var cookie = getCookie("fsaeCookie") || "";
+			return cookie;
+		}
+
+		function setToolCookie(cookieValue)
+		{
+			setSessionCookie("fsaeCookie", cookieValue);
+		}
+
+		function exitRequested()
+		{
+			window.close();
+		}
+
+		function runFsaeCalculation(accountTypeId, filingStatusId, numberOfDependents, primaryAnnualIncome,
+			spouseAnnualIncome, rolloverAmount, costAmounts)
+		{
+			var results;
+			results = FSAE_ENGINE.calculate(FSAE_CONFIG,
+				accountTypeId, filingStatusId, numberOfDependents, primaryAnnualIncome, spouseAnnualIncome,
+				rolloverAmount, costAmounts);
+			return results;
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Medical Plan Cost Estimator</title>
+	<link rel="stylesheet" href="styles.css" type="text/css">
+	<script src="engineCore/utility.js" language="javascript" type="text/javascript"></script>
+	<script src="engineCore/trace.js" language="javascript" type="text/javascript"></script>
+	<script src="engineCore/validationBase.js" language="javascript" type="text/javascript"></script>
+	<script src="engineCore/mpceValidation.js" language="javascript" type="text/javascript"></script>
+	<script src="engineCore/mpceEngine.js" language="javascript" type="text/javascript"></script>
+	<script src="mpceConfig.js" language="javascript" type="text/javascript"></script>
+	<script src="swfobject.js" language="javascript" type="text/javascript"></script>
+	<script language="javascript" type="text/javascript">
+
+		var flashvars = { "ver": "regular" };
+		swfobject.embedSWF("MpceFlex.swf", "myContent", "100%", "100%", "9.0.28", "expressInstall.swf", flashvars);
+
+	</script>
+</head>
+<body>
+	<div class="masterWrapper">
+		<div id="myContent">
+			<h1>Flash Player Required</h1>
+			<p><a href="http://www.adobe.com/go/getflashplayer"><img src="get_flash_player.gif" alt="Get Adobe Flash player" border="0" /></a></p>
+		</div>
+	</div>
+
+	<script language="javascript" type="text/javascript">
+
+		MPCE_CONFIG.coverageLevelCostsPerPlan = MPCE_CONFIG_REGULAR.coverageLevelCostsPerPlan;
+		MPCE_VALIDATION.checkConfig(MPCE_CONFIG);
+
+		function getMpceConfig()
+		{
+			return MPCE_CONFIG;
+		}
+		
+		function getDefaults()
+		{
+			var obj = {};
+			return obj;
+		}
+			
+		function getToolCookie()
+		{
+			var cookie = getCookie("mpceCookie") || "";
+			return cookie;
+		}
+		
+		function setToolCookie(cookieValue)
+		{
+			setSessionCookie("mpceCookie", cookieValue);
+		}
+			
+		function exitRequested()
+		{
+			window.close();
+		}
+
+		function runMpceCalculation2(region, status, reductionAnswers, primaryInputs, spouseInputs,
+			childrenInputsArray, rolloverAmount1, rolloverAmount2, hsaContributionAmount)
+		{
+			// Note: This updated runMpceCalculation2() requires detailed service input objects for
+			// the primary, spouse, and children. Previous runMpceCalculation() used to take simple
+			// numbers indicating a health status level.
+
+			var i, fundRolloverAmounts, fundContributionAmounts, premiumAdjustmentAmounts,
+				planFundAdditionalMatchAmounts, results;
+			
+			fundRolloverAmounts =
+			{
+				"CDHP": rolloverAmount1
+			};
+
+			fundContributionAmounts =
+			{
+				"CDHP": hsaContributionAmount
+			};
+
+			premiumAdjustmentAmounts = undefined; // Not applicable
+
+			planFundAdditionalMatchAmounts = undefined; // Not applicable
+			
+			results = MPCE_ENGINE.calculate(
+				MPCE_CONFIG, region, status, primaryInputs, spouseInputs, childrenInputsArray,
+				fundRolloverAmounts, fundContributionAmounts, premiumAdjustmentAmounts, planFundAdditionalMatchAmounts);
+			
+			// Custom results modifications for this client:
+			for(i=0; i<results.length; ++i)
+			{	
+				if( results[i].planId === "CDHP" )
+				{
+					results[i].voluntaryFundPaid += results[i].rolloverFundPaid;
+					results[i].rolloverFundPaid = 0;
+				}
+			}
+			
+			return results;
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>HSA and Limited-Purpose FSA Estimator</title>
+	<link rel="stylesheet" href="styles.css" type="text/css">
+	<script src="engineCore/utility.js" language="javascript" type="text/javascript"></script>
+	<script src="engineCore/trace.js" language="javascript" type="text/javascript"></script>
+	<script src="engineCore/validationBase.js" language="javascript" type="text/javascript"></script>
+	<script src="engineCore/fsaeValidation.js" language="javascript" type="text/javascript"></script>
+	<script src="engineCore/fsaeEngine.js" language="javascript" type="text/javascript"></script>
+	<script src="fsaeConfig.js" language="javascript" type="text/javascript"></script>
+	<script src="swfobject.js" language="javascript" type="text/javascript"></script>
+	<script language="javascript" type="text/javascript">
+
+		var flashvars = {};
+		if ( swfobject.getQueryParamValue("mc") ) { flashvars.mc = swfobject.getQueryParamValue("mc"); }
+		if ( swfobject.getQueryParamValue("cl") ) { flashvars.cl = swfobject.getQueryParamValue("cl"); }
+		if ( swfobject.getQueryParamValue("cslt") )
+		{
+			var cslt = swfobject.getQueryParamValue("cslt");
+			flashvars.mcl = (cslt === "S") ? 6350 : 12700; // cost-sharing limits for 2015
+			flashvars.cslt = cslt;
+		}
+		swfobject.embedSWF("HsaeFlex.swf", "myContent", "100%", "100%", "9.0.28", "expressInstall.swf", flashvars);
+		
+	</script>
+</head>
+<body>
+	<div class="masterWrapper">
+		<div id="myContent">
+			<h1>Flash Player Required</h1>
+			<p><a href="http://www.adobe.com/go/getflashplayer"><img src="get_flash_player.gif" alt="Get Adobe Flash player" border="0" /></a></p>
+		</div>
+	</div>
+	<script language="javascript" type="text/javascript">
+
+		FSAE_VALIDATION.checkConfig(FSAE_CONFIG);
+		
+		// Custom modification for this client implementation: Use the HSA limit
+		// found in the query string instead of the value in configuration.
+		var hsaLimitOverride = parseInt(swfobject.getQueryParamValue("cl"));
+		FSAE_CONFIG.accountTypes["HSA"].contributionMaximum = hsaLimitOverride;
+		
+		function getFsaeConfig()
+		{
+			return FSAE_CONFIG;
+		}
+		
+		function getDefaults()
+		{
+			var obj = {};
+			return obj;
+		}
+		
+		function getToolCookie()
+		{
+			var cookie = getCookie("hsaeCookie") || "";
+			return cookie;
+		}
+
+		function setToolCookie(cookieValue)
+		{
+			setSessionCookie("hsaeCookie", cookieValue);
+		}
+
+		function exitRequested()
+		{
+			window.close();
+		}
+
+		function runFsaeCalculation(accountTypeId, filingStatusId, numberOfDependents, primaryAnnualIncome,
+			spouseAnnualIncome, rolloverAmount, costAmounts)
+		{
+			if( accountTypeId == "HSA+LPFSA" )
+			{
+				// We'll simulate the combination HSA + LPFSA plan by calling the FSAE_ENGINE.calculate()
+				// twice; once for the HSA, and once for the LPFSA, then combine the results.  Note: We
+				// adjust the primaryAnnualIncome passed to the LPFSA to account for assumed tax savings
+				// from the HSA recommended contribution.
+				
+				// First, extract the costs that are to be apportioned to each plan type.
+				// Note: Should match the Flex UI.
+				var costAmountsHSA, costAmountsLPFSA, resultsHSA, resultsLPFSA, combinedResults;
+				
+				costAmountsHSA = [ costAmounts[0] ]; // "Medical" (HSA) in Flex UI
+				costAmountsLPFSA = [ costAmounts[1], costAmounts[2] ]; // "Vision", "Dental" (LPFSA) in Flex UI
+				
+				resultsHSA = FSAE_ENGINE.calculate(FSAE_CONFIG,
+					"HSA", filingStatusId, numberOfDependents, primaryAnnualIncome,
+					spouseAnnualIncome, rolloverAmount, costAmountsHSA);
+				
+				primaryAnnualIncome -= resultsHSA.suggestedContribution;
+				
+				resultsLPFSA = FSAE_ENGINE.calculate(FSAE_CONFIG,
+					"LPFSA", filingStatusId, numberOfDependents, primaryAnnualIncome,
+					spouseAnnualIncome, 0, costAmountsLPFSA);
+				
+				// Note: The tool now supports two categories for contributions; suggestedContribution
+				// and an optional suggestedContribution2, to separately chart two kinds of contributions.
+				combinedResults =
+				{
+					accountTypeId: resultsHSA.accountTypeId,
+					accountTypeDescription: resultsHSA.accountTypeDescription,
+					totalCosts: resultsHSA.totalCosts + resultsLPFSA.totalCosts,
+					suggestedContribution: resultsHSA.suggestedContribution,
+					suggestedContribution2: resultsLPFSA.suggestedContribution,
+					employerMatchingContribution: resultsHSA.employerMatchingContribution + resultsLPFSA.employerMatchingContribution,
+					federalIncomeTaxSavings: resultsHSA.federalIncomeTaxSavings + resultsLPFSA.federalIncomeTaxSavings,
+					ficaTaxSavings: resultsHSA.ficaTaxSavings + resultsLPFSA.ficaTaxSavings,
+					totalTaxSavings: resultsHSA.totalTaxSavings + resultsLPFSA.totalTaxSavings,
+					totalMatchAndTaxSavings: resultsHSA.totalMatchAndTaxSavings + resultsLPFSA.totalMatchAndTaxSavings
+				};
+				
+				return combinedResults;
+			}
+			else
+			{
+				// Else, assume a real accountTypeId was configured.
+				var results;
+				results = FSAE_ENGINE.calculate(FSAE_CONFIG,
+					accountTypeId, filingStatusId, numberOfDependents, primaryAnnualIncome, spouseAnnualIncome,
+					rolloverAmount, costAmounts);
+				return results;
+			}
+		}
+		
+	</script>
+</body>
+</html>
