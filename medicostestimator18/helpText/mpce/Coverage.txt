@@ -1,0 +1,3 @@
+The Medical Plan Cost Estimator is designed to give you a general idea of what your costs might be under each of your plan options. 
+<b>Domestic Partners and Tax-Advantaged Accounts</b><br>If you cover a domestic partner under your health plan, note that your domestic partner's health care expenses are not eligible for reimbursement by the Health Care Flexible Spending Account (FSA) or Health Savings Account (HSA).
+<b>More than Three Children</b><br>If you have more than three children covered by your medical plan, model health care usage for the three children who are likely to require the most health care services. 
